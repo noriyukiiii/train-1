@@ -1,0 +1,13 @@
+body{
+    height: 100vh;
+    /* background: url('./components/image/3.jpg')no-repeat; */
+    background: #8576FF;
+    background-size: cover;
+    background-position: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
