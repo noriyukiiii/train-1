@@ -6,12 +6,22 @@ import usericon from "./Assets/person.png";
 import passwordlicon from "./Assets/password.png";
 import Nav from "./nav";
 
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedin, setIsLoggedin] = useState(false);
 
   let navigate = useNavigate();
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem("loggedInUser");
+    if (loggedInUser) {
+      // ถ้ามีผู้ใช้ที่เข้าสู่ระบบอยู่แล้ว ให้ทำการ redirect ไปยังหน้าที่เหมาะสม
+      navigate("/logged");
+    }
+  }, [navigate]);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -21,7 +31,7 @@ const Login = () => {
 
     if (foundUser) {
       setIsLoggedin(true);
-      alert("logged");
+      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
     } else {
       alert("incorrect username or password");
     }
