@@ -37,7 +37,6 @@ function Logged() {
     })
       .then(res => {
         alert("data insert success")
-        navigat('/table');
       }).catch(err => console.log(err));
   };
   
@@ -105,20 +104,6 @@ function Logged() {
 
         </div>
       </form>
-      <div className="table-container">
-        <div className="iteme">
-          <div className="item1">
-          this is name : {name}
-          </div>
-          <div className="item2">
-          this is name : {weight}
-          </div>
-          <div className="item3">
-          this is name : {height}
-          </div>
-        </div>
-
-          </div>  
     </>
   );
 }

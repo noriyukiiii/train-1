@@ -1,32 +1,30 @@
-
 import Sidebarnav from './sidebar';
-
+import './homeside.css';
 import styled from "styled-components"
 
-const Style = styled.div`
-  color: white;
-  margin :10px;
-  padding: 10px;
+const Container = styled.div`
+  position: relative; /* เพื่อให้ Container ทำหน้าที่เป็นพื้นที่หลักของการแสดงผล */
+`
+
+const SideBarContainer = styled.div`
+  position: fixed;
+  top: 0; /* ตำแหน่งแนวด้านบนของหน้าจอ */
+  left: 0; /* ตำแหน่งแนวด้านซ้ายของหน้าจอ */
+  height: 100vh; /* ความสูงเต็มจอ */
 `
 
 const Homeside = () => {
-
-    
   return (
-    <div className="superside">
-      <div className="leftcol">
-        {" "}
-        {/* Sidebarnav อยู่กลางแนวตั้ง */}
+    <Container className="superside">
+      <SideBarContainer>
         <Sidebarnav />
-      </div>
+      </SideBarContainer>
       <div className="rightcol">
-        {" "}
-        <Style>
-      <p>Hello Home</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, rem. Doloremque unde suscipit eveniet, quod saepe modi iste corrupti qui praesentium. Minus error odio vitae delectus eos excepturi, amet cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates rem nesciunt officia tempora? Id quod iste voluptatem qui quaerat, optio, doloribus ad impedit, nihil debitis ut aut quam dolorum?</p>
-    </Style>
+        <div>
+          <h1>ยินดีต้อนรับ</h1>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

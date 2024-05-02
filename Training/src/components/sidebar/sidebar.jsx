@@ -5,18 +5,28 @@ import Menulist from "./menulist";
 import { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 const { Header, Sider, Content } = Layout;
+import styled from "styled-components"
+
 
 function Sidebarnav() {
 
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
+  const SideBarContainer = styled.div`
+  position: fixed;
+  top: 0; /* ตำแหน่งแนวด้านบนของหน้าจอ */
+  left: 0; /* ตำแหน่งแนวด้านซ้ายของหน้าจอ */
+  height: 100vh; /* ความสูงเต็มจอ */
+`
+
   return (
+    <SideBarContainer>
     <Layout>
-      <Sider collapsed={collapsed} collapsible className="sidebar" trigger={null}>
+      <Sider collapsed={collapsed} collapsible className="sidebar" trigger={null}   >
         <Logo />
         <Menulist />
       </Sider>
@@ -34,6 +44,7 @@ function Sidebarnav() {
         </Content>
       </Layout>
     </Layout>
+    </SideBarContainer>
   );
 }
 

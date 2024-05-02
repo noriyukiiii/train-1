@@ -21,13 +21,47 @@
       "height": "174",
       "bmi": 28.41
     },
-  {
-    "id": "a65f",
-    "name": "phanu",
-    "weight": "86",
-    "height": "174",
-    "bmi": 28.41
-  }
-    
+    {
+      "id": "1dbb",
+      "name": "suphachai",
+      "weight": "75",
+      "height": "179",
+      "bmi": 23.41
+    },
+    {
+      "id": "0cfa",
+      "name": "lolem",
+      "weight": "56",
+      "height": "165",
+      "bmi": 20.57
+    },
+    {
+      "id": "1f5e",
+      "name": "lora",
+      "weight": "100",
+      "height": "190",
+      "bmi": 27.7
+    },
+    {
+      "id": "57be",
+      "name": "heeel",
+      "weight": "52",
+      "height": "144",
+      "bmi": 25.08
+    },
+    {
+      "id": "0497",
+      "name": "ham",
+      "weight": "85",
+      "height": "175",
+      "bmi": 27.76
+    },
+    {
+      "id": "412c",
+      "name": "213123",
+      "weight": "123",
+      "height": "31",
+      "bmi": 1279.92
+    }
   ]
 }

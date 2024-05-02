@@ -1,4 +1,5 @@
 import Logged from '../Loginform/logged';
+import Bmitable from '../bmi';
 import Sidebarnav from './sidebar';
 
 
@@ -10,6 +11,7 @@ const Loggedside = () => {
         </div>
         <div className="rightcol"> {/* Bmitable อยู่ด้านขวา */}
             <Logged/>
+            <Bmitable/>
         </div>
     </div>
   )

@@ -1,6 +1,7 @@
-.sidebar{
-    color: #fff;
-    flex-direction: column;
+.sidebar {
+  color: #fff;
+  flex-direction: column;
+
 }
 
 .logo{
@@ -24,15 +25,14 @@
 }
 
 .menubar {
-    height: 91vh;
-    display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
-    gap: 15px;
-    font-size: 1rem;
-    position: relative;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1rem;
+  position: relative;
+  margin-top: 2rem;
+  height: calc(100vh - 2rem); /* ปรับให้เต็มความสูงของหน้าจอยกเว้นช่องด้านบน 2rem */
+}
 
   .superside{
     display: flex;
@@ -41,8 +41,10 @@
 
 .leftcol{
     width: auto;
+    
 }
 
 .rightcol{
     width: 100%;
 }
+
