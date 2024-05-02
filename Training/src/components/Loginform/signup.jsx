@@ -5,7 +5,7 @@ import './signup.css'
 import emailicon from './Assets/email.png'
 import usericon from './Assets/person.png'
 import passwordlicon from './Assets/password.png'
-import Nav from "./nav";
+import Nav from "../Menu/nav";
 
 const Signup = () => {
   const [username, setUsername] = useState("");

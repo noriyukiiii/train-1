@@ -1,0 +1,76 @@
+.form-container{
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    margin: auto;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    align-items: center;
+    width: 600px;   
+    border-radius: 20px;
+}
+
+.form-container button{
+    margin-top: 10px;
+}
+
+.form-container item{
+    margin-top: 200px;
+}
+input{
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 40px;
+    background: #eaeaea;
+    border-radius: 6px;
+}
+
+.item{
+    margin-top: 15px;
+}
+
+h1{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn {
+    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-insert {
+    padding: 10px 20px; /* ปรับขนาดของปุ่ม */
+    border: none; /* ลบเส้นขอบ */
+    border-radius: 5px; /* ปรับเส้นขอบเป็นวงกลม */
+    background-color: #007bff; /* สีพื้นหลังของปุ่ม */
+    color: #fff; /* สีข้อความ */
+    cursor: pointer; /* เปลี่ยนเป็น cursor แบบ pointer เมื่อนำเมาส์ไปชี้ */
+  }
+  
+  .btn-insert:hover {
+    background-color: #0056b3; /* สีพื้นหลังของปุ่มเมื่อเมาส์ชี้ */
+  }
+  
+
+.table-container{
+    justify-content: center;
+    text-align: center;
+    background: white;
+    margin: auto;
+    padding: 20px;
+    width: 620px;
+    
+}
+
+.iteme{
+    display: flex;
+    flex-direction: column;
+}

@@ -4,7 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./login.css";
 import usericon from "./Assets/person.png";
 import passwordlicon from "./Assets/password.png";
-import Nav from "./nav";
+import Nav from "../Menu/nav";
 
 
 const Login = () => {

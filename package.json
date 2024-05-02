@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "antd": "^5.16.5",
+    "axios": "^1.6.8",
+    "bootstrap": "^5.3.3",
+    "fs": "^0.0.1-security",
+    "json-server": "^1.0.0-alpha.23",
+    "react-pro-sidebar": "^1.1.0"
+  }
+}

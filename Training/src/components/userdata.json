@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "id": "6ddb",
+      "name": "สวัสดีคับ",
+      "weight": "95",
+      "height": "177",
+      "bmi": 30.32
+    },
+    {
+      "id": "7191",
+      "name": "Noriyuki",
+      "weight": "75",
+      "height": "178",
+      "bmi": 23.67
+    },
+    {
+      "id": "a65f",
+      "name": "phanu",
+      "weight": "86",
+      "height": "174",
+      "bmi": 28.41
+    },
+  {
+    "id": "a65f",
+    "name": "phanu",
+    "weight": "86",
+    "height": "174",
+    "bmi": 28.41
+  }
+    
+  ]
+}
