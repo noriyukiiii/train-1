@@ -18,6 +18,7 @@ import Signup from "./components/Loginform/signup";
 import Bmiside from "./components/sidebar/bmiside";
 import Loggedside from "./components/sidebar/loggedside";
 import Homeside from "./components/sidebar/homeside";
+import Calside from "./components/sidebar/calside";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/register" element={<Register/>}/>
           <Route path="navbar" element={<Nav/>}/>
           <Route path="/table" element={<Bmiside/>}/>
+          <Route path="/cal" element={<Calside/>}/>
         </Routes>
        
       </BrowserRouter>

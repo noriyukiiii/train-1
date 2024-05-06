@@ -24,6 +24,9 @@ const Menulist = () => {
       <Menu.Item key="Bmi Cal" icon={<AppstoreOutlined />}>
         <NavLink to="/bmical">BMI CAL</NavLink>
       </Menu.Item>
+      <Menu.Item key="cal" icon={<AppstoreOutlined />}>
+        <NavLink to="/cal">Home</NavLink>
+      </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="logout" icon={<SettingOutlined />} onClick={handleLogout}>
         log out

@@ -1,6 +1,6 @@
 
 import Sidebarnav from './sidebar';
-import Bmitable from '../bmi';
+import Addtable from './addtable';
 
 const Bmiside = () => {
   return (
@@ -9,7 +9,7 @@ const Bmiside = () => {
             <Sidebarnav/>
         </div>
         <div className="rightcol"> {/* Bmitable อยู่ด้านขวา */}
-            <Bmitable/>
+            <Addtable/>
         </div>
     </div>
   )

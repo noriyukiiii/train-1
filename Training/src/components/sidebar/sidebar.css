@@ -48,3 +48,9 @@
     width: 100%;
 }
 
+.SideBarContainer{
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  height: 100vh;
+}

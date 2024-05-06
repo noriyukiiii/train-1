@@ -1,5 +1,4 @@
 import Sidebarnav from './sidebar';
-import './homeside.css';
 import styled from "styled-components"
 
 const Container = styled.div`
@@ -27,5 +26,5 @@ const Homeside = () => {
     </Container>
   );
 };
-
+  
 export default Homeside;
