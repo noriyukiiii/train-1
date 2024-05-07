@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './addtable.css';
 
 function Addtable() {
-  const [inputGroups, setInputGroups] = useState([]);
+  const [inputGroups, setInputGroups] = useState([]); // เริ่ม inputGroups ด้วย array ว่าง
   const [submittedData, setSubmittedData] = useState([]);
   const [error, setError] = useState('');
 
@@ -32,15 +32,17 @@ function Addtable() {
   };
 
   const handleSubmit = () => {
+    // Check if any input is empty
     for (const group of inputGroups) {
       for (const input of group.inputs) {
         if (input === '') {
           setError('กรุณากรอกข้อมูลให้ครบทุกช่อง');
-          return;
+          return; // Stop the function if any input is empty
         }
       }
     }
 
+    // If all inputs are filled, submit the data
     const newData = inputGroups.map(group => {
       return {
         name: group.inputs[0],
@@ -48,17 +50,10 @@ function Addtable() {
       };
     });
     setSubmittedData(prevData => prevData.concat(newData));
-    setError('');
-    setInputGroups([]);
-  };
+    setError(''); // Reset error message
 
-  const handleSort = (columnName) => {
-    const sortedData = [...submittedData].sort((a, b) => {
-      if (a[columnName] < b[columnName]) return -1;
-      if (a[columnName] > b[columnName]) return 1;
-      return 0;
-    });
-    setSubmittedData(sortedData);
+    // Clear input data after submit
+    setInputGroups([]);
   };
 
   return (
@@ -82,27 +77,30 @@ function Addtable() {
 
       {error && <p className="error">{error}</p>}
 
-      <table>
-        <thead>
-          <tr>
-            {submittedData.length > 0 &&
-              Object.keys(submittedData[0]).map((columnName, index) => (
-                <th key={index} onClick={() => handleSort(columnName)}>
-                  {columnName}
-                </th>
-              ))}
-          </tr>
-        </thead>
-        <tbody>
-          {submittedData.map((data, index) => (
-            <tr key={index}>
-              {Object.values(data).map((value, idx) => (
-                <td key={idx}>{value}</td>
+        <table>
+          <thead>
+            <tr>
+              {submittedData.map((data, index) => (
+                <th key={index}>{data.name}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+            <tr>
+              {submittedData.map((data, index) => (
+                <td key={index}>{data.values[0]}</td>
+              ))}
+            </tr>
+            <tr>
+              {submittedData.map((data, index) => (
+                <td key={index}>{data.values[1]}</td>
+              ))}
+            </tr>
+            <tr>
+              {submittedData.map((data, index) => (
+                <td key={index}>{data.values[2]}</td>
+              ))}
+            </tr>
+          </thead>
+        </table>
     </div>
   );
 }
