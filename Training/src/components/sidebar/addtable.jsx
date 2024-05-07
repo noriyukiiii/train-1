@@ -1,110 +1,110 @@
-import { useState } from "react";
+import { useState } from 'react';
+import './addtable.css';
 
-const Addtable = () => {
-  const [showForm, setShowForm] = useState(false);
-  const [name, setName] = useState("");
-  const [values, setValues] = useState(["", "", ""]);
+function Addtable() {
+  const [inputGroups, setInputGroups] = useState([]);
   const [submittedData, setSubmittedData] = useState([]);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleAddInputGroup = () => {
+    const newInputGroup = {
+      id: inputGroups.length + 1,
+      inputs: ['', '', '', '']
+    };
+    setInputGroups([...inputGroups, newInputGroup]);
   };
 
-  const handleValueChange = (e, index) => {
-    const newValues = [...values];
-    newValues[index] = e.target.value;
-    setValues(newValues);
+  const handleRemoveInputGroup = (idToRemove) => {
+    const updatedInputGroups = inputGroups.filter(group => group.id !== idToRemove);
+    setInputGroups(updatedInputGroups);
+  };
+
+  const handleInputChange = (groupId, index, value) => {
+    const updatedInputGroups = inputGroups.map(group => {
+      if (group.id === groupId) {
+        const newInputs = [...group.inputs];
+        newInputs[index] = value;
+        return { ...group, inputs: newInputs };
+      }
+      return group;
+    });
+    setInputGroups(updatedInputGroups);
   };
 
   const handleSubmit = () => {
-    if (!name || values.some(value => !value)) {
-      setError("Please fill in all fields");
-      return;
+    for (const group of inputGroups) {
+      for (const input of group.inputs) {
+        if (input === '') {
+          setError('กรุณากรอกข้อมูลให้ครบทุกช่อง');
+          return;
+        }
+      }
     }
-    const newData = {
-      name: name,
-      values: [...values],
-    };
-    setSubmittedData([...submittedData, newData]);
-    setName("");
-    setValues(["", "", ""]);
-    setError("");
+
+    const newData = inputGroups.map(group => {
+      return {
+        name: group.inputs[0],
+        values: [group.inputs[1], group.inputs[2], group.inputs[3]]
+      };
+    });
+    setSubmittedData(prevData => prevData.concat(newData));
+    setError('');
+    setInputGroups([]);
   };
 
-  const handleAddClick = () => {
-    setShowForm(true);
+  const handleSort = (columnName) => {
+    const sortedData = [...submittedData].sort((a, b) => {
+      if (a[columnName] < b[columnName]) return -1;
+      if (a[columnName] > b[columnName]) return 1;
+      return 0;
+    });
+    setSubmittedData(sortedData);
   };
 
   return (
-    <>
-      <div className="container">
-        {!showForm && (
-          <button onClick={handleAddClick}>Add</button>
-        )}
-        {showForm && (
-          <>
+    <div className='form-container-input'>
+      {inputGroups.map(group => (
+        <div key={group.id} className='input-form2 '>
+          {group.inputs.map((input, index) => (
             <input
+              key={index}
               type="text"
-              value={name}
-              placeholder="Name"
-              onChange={handleNameChange}
+              value={input}
+              placeholder={index === 0 ? `col ${group.id}` : `value ${index}`}
+              onChange={(e) => handleInputChange(group.id, index, e.target.value)}
             />
-            {values.map((value, index) => (
-              <input
-                key={index}
-                type="text"
-                value={value}
-                placeholder={`Value ${index + 1}`}
-                onChange={(e) => handleValueChange(e, index)}
-              />
-            ))}
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={() => setShowForm(false)}>Cancel</button>
-            {error && <div style={{ color: "red" }}>{error}</div>}
-          </>
-        )}
-      </div>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              {submittedData.map((data, index) => (
-                <td key={index}>
-                  {data.name}
-                </td>
+          ))}
+          <button onClick={() => handleRemoveInputGroup(group.id)}>ลบ</button>
+        </div>
+      ))}
+      <button onClick={handleAddInputGroup}>เพิ่ม</button><br></br>
+      <button onClick={handleSubmit}>Submit</button>
+
+      {error && <p className="error">{error}</p>}
+
+      <table>
+        <thead>
+          <tr>
+            {submittedData.length > 0 &&
+              Object.keys(submittedData[0]).map((columnName, index) => (
+                <th key={index} onClick={() => handleSort(columnName)}>
+                  {columnName}
+                </th>
+              ))}
+          </tr>
+        </thead>
+        <tbody>
+          {submittedData.map((data, index) => (
+            <tr key={index}>
+              {Object.values(data).map((value, idx) => (
+                <td key={idx}>{value}</td>
               ))}
             </tr>
-            <tr>
-              <th>Value</th>
-              {submittedData.map((data, index) => (
-                <td key={index}>
-                  {data.values[0]}
-                </td>
-              ))}
-            </tr>
-            <tr>
-              <th>Value2</th>
-              {submittedData.map((data, index) => (
-                <td key={index}>
-                  {data.values[1]}
-                </td>
-              ))}
-            </tr>
-            <tr>
-              <th>Value3</th>
-              {submittedData.map((data, index) => (
-                <td key={index}>
-                  {data.values[2]}
-                </td>
-              ))}
-            </tr>
-          </thead>
-        </table>
-      </div>
-    </>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
-};
+}
 
 export default Addtable;

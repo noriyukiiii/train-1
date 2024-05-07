@@ -10,6 +10,7 @@ const Bmiside = () => {
         </div>
         <div className="rightcol"> {/* Bmitable อยู่ด้านขวา */}
             <Addtable/>
+
         </div>
     </div>
   )
