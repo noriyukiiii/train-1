@@ -76,9 +76,9 @@ function Addtable() {
             <button onClick={() => handleRemoveInputGroup(group.id)}>ลบ</button>
           </div>
         ))}
-        <button onClick={handleAddInputGroup}>เพิ่ม</button>
+        <button className="bg-white" onClick={handleAddInputGroup}>เพิ่ม</button>
         <br />
-        <button onClick={handleSubmit}>Submit</button>
+        <button className="bg-white" onClick={handleSubmit}>Submit</button>
         {error && <p className="error">{error}</p>}
       </div>
 
