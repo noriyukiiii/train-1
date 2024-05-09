@@ -1,16 +1,15 @@
 import { NavLink } from "react-router-dom";
-import "./nav.css";
 
 function Nav() {
   return (
     <>
-    <nav className="navbar">
-      <ul>
-        <NavLink to="/home" className="navlink">Home</NavLink>
-        <NavLink to="/about" className="navlink">About</NavLink>
-        <NavLink to="/contact" className="navlink">Contact</NavLink>
+    <nav className="font-main flex justify-between text-center p-3 pr-5 bg-blue-900">
+      <ul className="flex justify-between">
+        <NavLink to="/home" className="bg-sky-500 text-white mr-4 p-2 rounded-xl hover:bg-sky-600 ">Home</NavLink>
+        <NavLink to="/about" className="bg-sky-500 text-white mr-4 p-2 rounded-xl hover:bg-sky-600">About</NavLink>
+        <NavLink to="/contact" className="bg-sky-500 text-white mr-4 p-2 rounded-xl hover:bg-sky-600">Contact</NavLink>
         </ul>
-        <NavLink to="/login" className="navlink">Login</NavLink>
+        <NavLink to="/login" className="bg-sky-500 text-white mr-4 p-2 rounded-xl hover:bg-sky-600">Login</NavLink>
     </nav>
     </>
   );

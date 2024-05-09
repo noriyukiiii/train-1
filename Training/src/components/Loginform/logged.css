@@ -41,22 +41,22 @@ h1{
 }
 
 .btn {
-    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    margin-top: 20px; 
     text-align: center;
     margin-bottom: 20px;
   }
   
   .btn-insert {
-    padding: 10px 20px; /* ปรับขนาดของปุ่ม */
-    border: none; /* ลบเส้นขอบ */
-    border-radius: 5px; /* ปรับเส้นขอบเป็นวงกลม */
-    background-color: #007bff; /* สีพื้นหลังของปุ่ม */
-    color: #fff; /* สีข้อความ */
-    cursor: pointer; /* เปลี่ยนเป็น cursor แบบ pointer เมื่อนำเมาส์ไปชี้ */
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #007bff; 
+    color: #fff; 
+    cursor: pointer; 
   }
   
   .btn-insert:hover {
-    background-color: #0056b3; /* สีพื้นหลังของปุ่มเมื่อเมาส์ชี้ */
+    background-color: #0056b3; 
   }
   
 

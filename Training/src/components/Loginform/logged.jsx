@@ -1,11 +1,9 @@
 /* eslint-disable no-unused-vars */
-import Navlogin from "../Menu/ืnavlogin";
 import { useState } from "react";
-import "./logged.css";
 import "../sidebar/sidebar.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Sidebarnav from "../sidebar/sidebar";
+
 
 function Logged() {
   const [name, setName] = useState("");
@@ -47,15 +45,15 @@ function Logged() {
 
   return (
     <>
-      <form className="form-container" onSubmit={handleFormSubmit}>
-        <div>
+      <form className="mx-auto mt-16 rounded-xl px-16 pt-8 w-[500px] bg-white text-main text-white" onSubmit={handleFormSubmit}>
+        <div className="text-black ">
           <h1>คำนวณ BMI</h1>
-          <div className="item">
-            <div>ชื่อ</div>
+          <div className="">
+            <div className="text-left text-2xl ml-2">ชื่อ</div>
             <input
               type="text"
               placeholder="Name"
-              className="item1"
+              className="mb-4 bg-gray-300 w-full px-2 py-1 rounded"
               value={name}
               onChange={(e) => {
                 setInputdata({ ...inputdata, name: e.target.value });
@@ -65,12 +63,12 @@ function Logged() {
               required
             />
           </div>
-          <div className="item">
-            <div>น้ำหนัก</div>
+          <div className=" text-left">
+            <div className="text-2xl ml-2">น้ำหนัก</div>
             <input
               type="number"
               placeholder="weigth(kg)"
-              className="item1"
+              className="mb-4 bg-gray-300 w-full px-2 py-1 rounded"
               value={weight}
               onChange={(e) => {
                 setInputdata({ ...inputdata, weight: e.target.value });
@@ -80,12 +78,12 @@ function Logged() {
               required
             />
           </div>
-          <div className="item">
-            <div>ส่วนสูง</div>
+          <div className="text-left">
+            <div className="ml-2 text-2xl">ส่วนสูง</div>
             <input
               type="number"
               placeholder="height"
-              className="item1"
+              className="mb-4 bg-gray-300 w-full px-2 py-1 rounded"
               value={height}
               onChange={(e) => {
                 setInputdata({ ...inputdata, height: e.target.value });
@@ -96,7 +94,7 @@ function Logged() {
             />
           </div>
           <div className="btn">
-            <button type="submit" className="btn-insert">
+            <button type="submit" className="bg-green-300 px-4">
               ตกลง
             </button>
           </div>
