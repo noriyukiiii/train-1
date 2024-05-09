@@ -82,7 +82,7 @@ function Addtable() {
         {error && <p className="error">{error}</p>}
       </div>
 
-      <div className="table-containerr">
+      <div className="tabl">
         {submittedData.map((data, dataIndex) => (
           <table key={dataIndex} className="submitted-table">
             <tbody className="tbody-table">

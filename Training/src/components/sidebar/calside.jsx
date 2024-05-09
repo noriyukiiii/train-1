@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Sidebarnav from "./sidebar";
-import './calside.css';
 
 const Calside = () => {
   const [n, setN] = useState(0);
@@ -12,7 +11,6 @@ const Calside = () => {
     let t2 = 1; // เริ่มต้นจาก 1
     let fibonacciSeries = [t1, t2];
 
-
     for (let i = 3; i <= n; ++i) {
       let nextTerm = t1 + t2;
       fibonacciSeries.push(nextTerm);
@@ -21,30 +19,31 @@ const Calside = () => {
     }
 
     setSeries(fibonacciSeries);
-    
-
   };
-  console.log(series, lastElement)
-
+  console.log(series, lastElement);
 
   return (
-    <div className='superside'>
+    <div className="superside">
       <div className="leftcol">
         <Sidebarnav />
       </div>
-      <div className="rightcol">
-        <h1>Enter the number of terms: </h1>
-        <input
-          className="number"
-          type="number"
-          value={n}
-          onChange={(e) => {
-            setN(parseInt(e.target.value));
-          }}
-        />
-        <button onClick={generateFibonacciSeries}>Generate</button>
-        <br />
-        <label className="result">Fibonacci Series: {lastElement} </label>
+      <div className="rightcl flex font-main w-screen">
+        <div className="mx-auto my-auto bg-white p-8 w-[700px] rounded-xl h-[400px] text-center flex flex-col items-center">
+          <h1 className="text-black mb-10">หาตำแหน่ง Fibonacci </h1>
+          <div>
+          <label className="text-black items-start ml-4 font-main font-bold text-lg mb-2">ตำแหน่ง : </label>
+          <input
+            className="mb-4 bg-gray-300 w-1/2 px-2 py-1 rounded"
+            type="number"
+            value={n}
+            onChange={(e) => {
+              setN(parseInt(e.target.value));
+            }}
+          />
+          </div>
+          <button className="m-2 py-1 bg-green-500 text-white rounded mb-8 px-5" onClick={generateFibonacciSeries}>Generate</button>
+          <label className="font-bold text-lg">Fibonacci Series: {lastElement} </label>
+        </div>
       </div>
     </div>
   );
