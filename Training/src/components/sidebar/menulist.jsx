@@ -19,13 +19,13 @@ const Menulist = () => {
         <NavLink to="/homeside">Home</NavLink>
       </Menu.Item>
       <Menu.Item key="BMI" icon={<AppstoreOutlined />}>
-        <NavLink to="/table">BMI</NavLink>
+        <NavLink to="/table">Add Table</NavLink>
       </Menu.Item>
       <Menu.Item key="Bmi Cal" icon={<AppstoreOutlined />}>
         <NavLink to="/bmical">BMI CAL</NavLink>
       </Menu.Item>
       <Menu.Item key="cal" icon={<AppstoreOutlined />}>
-        <NavLink to="/cal">Home</NavLink>
+        <NavLink to="/cal">Fibonacci</NavLink>
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="logout" icon={<SettingOutlined />} onClick={handleLogout}>

@@ -60,13 +60,13 @@ const Login = () => {
             <div className="text-left pl-8 text-xl">
               <label>Username</label>
             </div>
-            <div className="flex flex-row my-auto">
+            <div className="flex flex-row my-auto mb-4">
               <img src={usericon} alt="" className="w-auto h-5 my-auto" />
               <input
                 type="text"
                 name="username"
                 id="username"
-                className="m-2 h-12 w-96 rounded-xl mb-5 text-xl pl-3 bg-gray-200"
+                className="m-2 h-12 w-96 rounded-xl text-xl pl-3 bg-gray-200"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Username"
@@ -76,13 +76,13 @@ const Login = () => {
             <div className="text-left pl-8 text-xl">
               <label>Password</label>
             </div>
-            <div className="flex flex-row my-auto">
+            <div className="flex flex-row my-auto mb-4">
               <img src={passwordlicon} alt="" className="w-auto h-5 my-auto" />
               <input
                 type="password"
                 name="password"
                 id="password"
-                className="m-2 h-12 w-96 rounded-xl mb-5 text-xl pl-3 bg-gray-200"
+                className="m-2 h-12 w-96 rounded-xl text-xl pl-3 bg-gray-200"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
@@ -92,14 +92,14 @@ const Login = () => {
           </div>
           <div className="flex flex-row-reverse">
             <button
-              className="m-2 bg-green-400 text-white rounded mb-8 px-5"
+              className="m-2 bg-green-400 text-white rounded mb-8 px-5 py-2"
               type="submit"
               onClick={handleLogin}
             >
               Login
             </button>
             <button
-              className="m-2 bg-gray-400 text-white rounded mb-8 px-5"
+              className="m-2 bg-gray-400 text-white rounded mb-8 px-5 py-2"
               onClick={() => navigate("/signup")}
             >
               Sign up

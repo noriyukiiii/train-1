@@ -5,11 +5,11 @@ import Sidebarnav from './sidebar';
 
 const Loggedside = () => {
   return (
-    <div className='superside'>
-        <div className="leftcol"> {/* Sidebarnav อยู่กลางแนวตั้ง */}
+    <div className='superside flex'> {/* เพิ่มคลาส flex เพื่อให้คอลัมน์ถูกจัดการโดย flexbox */}
+        <div className="leftcol w-64 overflow-y-hidden overflow-x-hidden sticky top-0 h-screen"> {/* กำหนดความกว้างของ Sidebar เป็น 64px */}
             <Sidebarnav/>
         </div>
-        <div className="rightcol"> {/* Bmitable อยู่ด้านขวา */}
+        <div className="rightcol"> {/* ให้คอลัมน์ด้านขวายืดออกตามขอบเขต */}
             <Logged/>
             <Bmitable/>
         </div>
@@ -18,3 +18,4 @@ const Loggedside = () => {
 }
 
 export default Loggedside;
+

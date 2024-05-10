@@ -8,17 +8,18 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+
+//component
 import Login from "./components/Loginform/login";
-import Home from "./components/Menu/home";
 import Contact from "./components/Menu/contact";
 import About from "./components/Menu/about";
-import Register from "./components/Loginform/register";
 import Nav from "./components/Menu/nav";
 import Signup from "./components/Loginform/signup";
 import Bmiside from "./components/sidebar/bmiside";
 import Loggedside from "./components/sidebar/loggedside";
 import Homeside from "./components/sidebar/homeside";
 import Calside from "./components/sidebar/calside";
+import Home_main from "./components/Menu/Homepage/Home_main";
 
 function App() {
   return (
@@ -27,16 +28,16 @@ function App() {
        
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home_main />} />
           <Route path="/homeside" element={<Homeside />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home_main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/logged" element={<Loggedside />} />
           <Route path="/bmical" element={<Loggedside />} />
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/signup" element={<Signup/>}/>
           <Route path="navbar" element={<Nav/>}/>
           <Route path="/table" element={<Bmiside/>}/>
           <Route path="/cal" element={<Calside/>}/>

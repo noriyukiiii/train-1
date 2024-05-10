@@ -1,24 +1,16 @@
-import styled from "styled-components"
-import Nav from "./nav"
-
-const Style = styled.div`
-  color: white;
-  margin :10px;
-  padding: 10px;
-`
-
-function Home(login) {
-
+function Home() {
   return (
-  <>
-  <Nav/>
-    <Style>
-      <p>Hello Home</p>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, rem. Doloremque unde suscipit eveniet, quod saepe modi iste corrupti qui praesentium. Minus error odio vitae delectus eos excepturi, amet cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit voluptates rem nesciunt officia tempora? Id quod iste voluptatem qui quaerat, optio, doloribus ad impedit, nihil debitis ut aut quam dolorum?</p>
-      <button onClick={login}>login</button>
-    </Style>
-  </>
-  )
+    <>
+      <div className=" font-main h-screen mx-auto">
+        <div className ="flex justify-center ">
+          <div className="text-center mt-6">
+            <h1 className="text-6xl mb-10">ยินดีต้อนรับ</h1>
+            <p className="text-2xl bg-white p-3 rounded-xl">นี้เป็นเว็บไซต์เพื่อนเรียนรู้ React ของ พี</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;

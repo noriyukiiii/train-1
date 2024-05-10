@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./addtable.css";
 
 function Addtable() {
   const [inputGroups, setInputGroups] = useState([]);
   const [submittedData, setSubmittedData] = useState([]);
   const [error, setError] = useState("");
+  const [sortDirection, setSortDirection] = useState("asc"); // เริ่มต้นเรียงลำดับจากน้อยไปมาก
 
   const handleAddInputGroup = () => {
     const newInputGroup = {
@@ -33,7 +33,6 @@ function Addtable() {
     setInputGroups(updatedInputGroups);
   };
 
-
   const handleSubmit = () => {
     for (const group of inputGroups) {
       for (const input of group.inputs) {
@@ -57,15 +56,41 @@ function Addtable() {
     setInputGroups([]);
   };
 
+  const handleSort = (columnName) => {
+    // สร้างสำเนาข้อมูลที่จะทำการเรียงลำดับ
+    const copiedData = [...submittedData];
+  
+    // เรียงลำดับข้อมูลตามชื่อของไอเทม (columnName) โดยดูจากค่าของ sortDirection
+    const sortedData = copiedData.sort((a, b) => {
+      if (sortDirection === "asc") {
+        return a[0][columnName].localeCompare(b[0][columnName]);
+      } else {
+        return b[0][columnName].localeCompare(a[0][columnName]);
+      }
+    });
+  
+    // ปรับเปลี่ยนทิศทางการเรียงลำดับ
+    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+  
+    // อัปเดตข้อมูลที่เรียงลำดับแล้วลงใน state
+    setSubmittedData(sortedData);
+  };
+  
+  
+
   return (
-    <div>
-      <div className="form-container-input">
+    <div className="m-10 font-main ">
+      <div className="flex flex-col">
         {inputGroups.map((group) => (
-          <div key={group.id} className="input-form2">
+          <div
+            key={group.id}
+            className="flex justify-around  items-end bg-white rounded-xl mb-4"
+          >
             {group.inputs.map((input, index) => (
               <input
                 key={index}
                 type="text"
+                className="bg-gray-200 rounded my-4 p-1 pl-3"
                 value={input}
                 placeholder={index === 0 ? `col ${group.id}` : `value ${index}`}
                 onChange={(e) =>
@@ -73,24 +98,61 @@ function Addtable() {
                 }
               />
             ))}
-            <button onClick={() => handleRemoveInputGroup(group.id)}>ลบ</button>
+            <button
+              className="my-5 bg-red-400 rounded px-3"
+              onClick={() => handleRemoveInputGroup(group.id)}
+            >
+              ลบ
+            </button>
           </div>
         ))}
-        <button className="bg-white" onClick={handleAddInputGroup}>เพิ่ม</button>
-        <br />
-        <button className="bg-white" onClick={handleSubmit}>Submit</button>
-        {error && <p className="error">{error}</p>}
+
+        <div className="flex flex-col justify-center items-center">
+          <div>
+            {error && (
+              <div className="text-xl bg-red-200 p-3 rounded-xl text-red-700">
+                <p className="error">{error}</p>
+              </div>
+            )}
+          </div>
+          <button
+            className="bg-green-300 my-4 w-[70px] py-1 px-2 rounded"
+            onClick={handleAddInputGroup}
+          >
+            เพิ่ม
+          </button>
+          <button
+            className="bg-green-300 w-[70px] py-1 px-2 rounded mb-4"
+            onClick={handleSubmit}
+          >
+            ยืนยัน
+          </button>
+        </div>
       </div>
 
-      <div className="tabl">
+      <div className="flex">
         {submittedData.map((data, dataIndex) => (
-          <table key={dataIndex} className="submitted-table">
-            <tbody className="tbody-table">
+          <table key={dataIndex} className="mr-3">
+            <tbody className="">
               {data.map((item, itemIndex) => (
-                <tr key={itemIndex} className="tr-table">
-                  <td >{item.name}</td>
+                <tr
+                  key={itemIndex}
+                  className="flex flex-col text-center border-solid border-b-0 bg-white border-black"
+                >
+                 <th
+  onClick={() => handleSort(item.name)}
+  className="border-solid border-0 border-b-2 border-black bg-green-200 px-2 py-1 min-w-8 cursor-pointer"
+>
+  {item.name}
+</th>
+
                   {item.values.map((value, valueIndex) => (
-                    <td key={valueIndex}>{value}</td>
+                    <td
+                      className="border-solid border-0 border-b-2 border-black px-2"
+                      key={valueIndex}
+                    >
+                      {value}
+                    </td>
                   ))}
                 </tr>
               ))}

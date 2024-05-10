@@ -6,9 +6,7 @@ import { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 const { Header, Sider, Content } = Layout;
 
-
 function Sidebarnav() {
-
   const [collapsed, setCollapsed] = useState(true);
 
   const {
@@ -17,25 +15,29 @@ function Sidebarnav() {
 
   return (
     <div className="SideBarCintainer">
-    <Layout>
-      <Sider collapsed={collapsed} collapsible className="sidebar" trigger={null}   >
-        <Logo />
-        <Menulist />
-      </Sider>
-      <Layout>
-        <Header style={{ padding: 0, backgroundColor: colorBgContainer }}>
-          <Button
-            className="toggle"
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-          />
-        </Header>
+      <Layout className="">
+        <Sider
+          collapsed={collapsed}
+          collapsible
+          className={`sidebar ${collapsed ? "sticky top-0 h-screen" : ""}`}
+          trigger={null}
+        >
+          <Logo />
+          <Menulist />
+        </Sider>
+        <Layout>
+          <Header style={{ padding: 0, backgroundColor: colorBgContainer }}>
+            <Button
+              className="toggle"
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+            />
+          </Header>
 
-        <Content>
-        </Content>
+          <Content></Content>
+        </Layout>
       </Layout>
-    </Layout>
     </div>
   );
 }

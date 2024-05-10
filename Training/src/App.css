@@ -1,7 +1,8 @@
 body{
     height: 100vh;
-    /* background: url('./components/image/3.jpg')no-repeat; */
-    background: #8576FF;
+    background: url('./assets/main-background.jpg')no-repeat;
+    /* background: #8576FF; */
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
 }
