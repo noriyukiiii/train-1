@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import Inputadd from "./inputadd";
 
 function Addtable() {
   const [submittedData, setSubmittedData] = useState([]);
+
 
   const handleSubmittedData = (newData) => {
     // รวมข้อมูลใหม่กับข้อมูลเก่า
     const combinedData = [...submittedData, ...newData];
     setSubmittedData(combinedData);
   };
+  
+  useEffect(() => {
+    // เมื่อ submittedData เปลี่ยนแปลง ให้ทำสิ่งที่ต้องการทำต่อไป
+    const values = submittedData.length > 0 ? submittedData[0].values : null;
+    console.log(values);
+  }, [submittedData]); // useEffect จะถูกเรียกทุกครั้งเมื่อ submittedData เปลี่ยนแปลง
+
 
   return (
     <div className="m-10 font-main">

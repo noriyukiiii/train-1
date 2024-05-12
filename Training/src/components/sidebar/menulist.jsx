@@ -13,8 +13,10 @@ const Menulist = () => {
     navigate("/");
   };
 
+
+  
   return (
-    <Menu theme='dark' mode="inline" className='menubar'>
+    <Menu theme='dark' mode="inline" className='menubar flex flex-col gap-4 text-base relative mt-8 h-screen'>
       <Menu.Item key="home" icon={<HomeOutlined />}>
         <NavLink to="/homeside">Home</NavLink>
       </Menu.Item>

@@ -3,11 +3,11 @@ import Sidebarnav from "./sidebar";
 
 const Homeside = () => {
   return (
-    <div className="superside">
-      <div className="leftcol">
+    <div className="flex justify-between">
+      <div className=" w-auto">
         <Sidebarnav />
       </div>
-      <div className="rightcol">
+      <div className="w-full">
         <Home />
       </div>
     </div>

@@ -1,5 +1,4 @@
 import { Layout, Button, theme } from "antd";
-import "./sidebar.css";
 import Logo from "./logo";
 import Menulist from "./menulist";
 import { useState } from "react";
@@ -19,7 +18,7 @@ function Sidebarnav() {
         <Sider
           collapsed={collapsed}
           collapsible
-          className={`sidebar ${collapsed ? "sticky top-0 h-screen" : ""}`}
+          className={`text-white flex-col ${collapsed ? "sticky top-0 h-screen" : ""}`}
           trigger={null}
         >
           <Logo />
