@@ -92,7 +92,11 @@ const Login = () => {
           </div>
           <div className="flex flex-row-reverse">
             <button
+<<<<<<< Updated upstream
               className="m-2 bg-green-400 text-white rounded mb-8 px-5 py-2"
+=======
+              className="m-2 bg-green-400 text-white rounded mb-8 px-5 py-1"
+>>>>>>> Stashed changes
               type="submit"
               onClick={handleLogin}
             >
