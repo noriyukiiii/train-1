@@ -1,10 +1,10 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
-function Addtable() {
+function Inputadd({ onSubmittedData }) {
   const [inputGroups, setInputGroups] = useState([]);
-  const [submittedData, setSubmittedData] = useState([]);
   const [error, setError] = useState("");
-  const [sortDirection, setSortDirection] = useState("asc"); // เริ่มต้นเรียงลำดับจากน้อยไปมาก
 
   const handleAddInputGroup = () => {
     const newInputGroup = {
@@ -44,45 +44,25 @@ function Addtable() {
     }
 
     // สร้าง table แยกตามข้อมูลที่ถูกส่งเข้ามาในแต่ละครั้ง
-    inputGroups.forEach((group) => {
-      const newData = {
-        name: group.inputs[0],
-        values: [group.inputs[1], group.inputs[2], group.inputs[3]],
-      };
-      setSubmittedData((prevData) => [...prevData, [newData]]);
-    });
+    const submittedData = inputGroups.map((group) => ({
+      name: group.inputs[0],
+      values: [group.inputs[1], group.inputs[2], group.inputs[3]],
+    }));
+
+    // เรียกใช้งาน function ที่รับมาจาก props เพื่อส่ง submitted data ไปยัง component อื่น ๆ
+    onSubmittedData(submittedData);
 
     setError("");
     setInputGroups([]);
   };
 
-  const handleSort = (columnName) => {
-    // สร้างสำเนาข้อมูลที่จะทำการเรียงลำดับ
-    const copiedData = [...submittedData];
-
-    // เรียงลำดับข้อมูลตามชื่อของไอเทม (columnName) โดยดูจากค่าของ sortDirection
-    const sortedData = copiedData.sort((a, b) => {
-      if (sortDirection === "asc") {
-        return a[0][columnName].localeCompare(b[0][columnName]);
-      } else {
-        return b[0][columnName].localeCompare(a[0][columnName]);
-      }
-    });
-
-    // ปรับเปลี่ยนทิศทางการเรียงลำดับ
-    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-
-    // อัปเดตข้อมูลที่เรียงลำดับแล้วลงใน state
-    setSubmittedData(sortedData);
-  };
-
   return (
-    <div className="m-10 font-main ">
+    <div>
       <div className="flex flex-col">
         {inputGroups.map((group) => (
           <div
             key={group.id}
-            className="flex justify-around  items-end bg-white rounded-xl mb-4"
+            className="flex justify-around items-end bg-white rounded-xl mb-4"
           >
             {group.inputs.map((input, index) => (
               <input
@@ -127,39 +107,12 @@ function Addtable() {
           </button>
         </div>
       </div>
-
-      <div className="flex">
-        {submittedData.map((data, dataIndex) => (
-          <table key={dataIndex} className="mr-3">
-            <tbody className="">
-              {data.map((item, itemIndex) => (
-                <tr
-                  key={itemIndex}
-                  className="flex flex-col text-center border-solid border-b-0 bg-white border-black"
-                >
-                  <th
-                    onClick={() => handleSort(item.name)}
-                    className="border-solid border-0 border-b-2 border-black bg-green-200 px-2 py-1 min-w-8 cursor-pointer"
-                  >
-                    {item.name}
-                  </th>
-
-                  {item.values.map((value, valueIndex) => (
-                    <td
-                      className="border-solid border-0 border-b-2 border-black px-2"
-                      key={valueIndex}
-                    >
-                      {value}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ))}
-      </div>
     </div>
   );
 }
 
-export default Addtable;
+Inputadd.propTypes = {
+  onSubmittedData: PropTypes.func.isRequired,
+};
+
+export default Inputadd;

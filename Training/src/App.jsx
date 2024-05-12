@@ -15,12 +15,11 @@ import Contact from "./components/Menu/contact";
 import About from "./components/Menu/about";
 import Nav from "./components/Menu/nav";
 import Signup from "./components/Loginform/signup";
-import Bmiside from "./components/sidebar/bmiside";
-import Loggedside from "./components/sidebar/loggedside";
 import Homeside from "./components/sidebar/homeside";
+import Bmiside from "./components/sidebar/addtableside/bmiside";
 import Calside from "./components/sidebar/calside";
 import Home_main from "./components/Menu/Homepage/Home_main";
-
+import Loggedside from "./components/sidebar/loggedside"
 function App() {
   return (
     <>

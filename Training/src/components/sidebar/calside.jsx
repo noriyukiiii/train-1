@@ -28,7 +28,7 @@ const Calside = () => {
         <Sidebarnav />
       </div>
       <div className="rightcl flex font-main w-screen">
-        <div className="mx-auto my-auto bg-white p-8 w-[700px] rounded-xl h-[400px] text-center flex flex-col items-center">
+        <div className="mx-auto my-auto bg-white p-8 w-[700px] rounded-xl h-fit text-center flex flex-col items-center">
           <h1 className="text-black mb-10 text-4xl font-semibold">หาตำแหน่ง Fibonacci   </h1>
           <div>
           <label className="text-black items-start ml-4 font-main font-bold text-lg mb-2">ตำแหน่ง : </label>

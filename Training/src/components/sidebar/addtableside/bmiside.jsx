@@ -1,5 +1,5 @@
 
-import Sidebarnav from './sidebar';
+import Sidebarnav from '../sidebar';
 import Addtable from './addtable';
 
 const Bmiside = () => {
