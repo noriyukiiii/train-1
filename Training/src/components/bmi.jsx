@@ -17,9 +17,9 @@ function Bmitable() {
   return (
     <>
       <header>
-        <h1 className=" text-center">ตาราง</h1>
+        <h1 className="text-center font-main font-bold text-3xl my-5">ตาราง</h1>
       </header>
-      <div className="bg-white ">
+      <div className="flex justify-center items-center font-main">
         <table className="table">
           <thead>
             <tr>

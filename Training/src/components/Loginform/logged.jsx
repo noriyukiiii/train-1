@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import "../sidebar/sidebar.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -45,10 +44,10 @@ function Logged() {
 
   return (
     <>
-      <form className="mx-auto mt-16 rounded-xl px-16 pt-8 w-[500px] bg-white text-main text-white" onSubmit={handleFormSubmit}>
-        <div className="text-black ">
-          <h1>คำนวณ BMI</h1>
-          <div className="">
+      <form className="mx-auto mt-16 rounded-xl px-16 pt-8 w-[450px] bg-white font-main text-white " onSubmit={handleFormSubmit}>
+        <div className="text-black flex flex-col m-auto items-center">
+          <h1 className="text-4xl font-semibold mb-4">คำนวณ BMI</h1>
+          <div className="w-full">
             <div className="text-left text-2xl ml-2">ชื่อ</div>
             <input
               type="text"
@@ -63,7 +62,7 @@ function Logged() {
               required
             />
           </div>
-          <div className=" text-left">
+          <div className=" text-left w-full">
             <div className="text-2xl ml-2">น้ำหนัก</div>
             <input
               type="number"
@@ -78,7 +77,7 @@ function Logged() {
               required
             />
           </div>
-          <div className="text-left">
+          <div className="text-left w-full">
             <div className="ml-2 text-2xl">ส่วนสูง</div>
             <input
               type="number"
@@ -93,8 +92,8 @@ function Logged() {
               required
             />
           </div>
-          <div className="btn">
-            <button type="submit" className="bg-green-300 px-4">
+          <div className="flex">
+            <button type="submit" className="bg-green-300 px-4 rounded mb-5">
               ตกลง
             </button>
           </div>
