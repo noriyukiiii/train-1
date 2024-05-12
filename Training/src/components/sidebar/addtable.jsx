@@ -59,7 +59,7 @@ function Addtable() {
   const handleSort = (columnName) => {
     // สร้างสำเนาข้อมูลที่จะทำการเรียงลำดับ
     const copiedData = [...submittedData];
-  
+
     // เรียงลำดับข้อมูลตามชื่อของไอเทม (columnName) โดยดูจากค่าของ sortDirection
     const sortedData = copiedData.sort((a, b) => {
       if (sortDirection === "asc") {
@@ -68,15 +68,13 @@ function Addtable() {
         return b[0][columnName].localeCompare(a[0][columnName]);
       }
     });
-  
+
     // ปรับเปลี่ยนทิศทางการเรียงลำดับ
     setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-  
+
     // อัปเดตข้อมูลที่เรียงลำดับแล้วลงใน state
     setSubmittedData(sortedData);
   };
-  
-  
 
   return (
     <div className="m-10 font-main ">
@@ -139,12 +137,12 @@ function Addtable() {
                   key={itemIndex}
                   className="flex flex-col text-center border-solid border-b-0 bg-white border-black"
                 >
-                 <th
-  onClick={() => handleSort(item.name)}
-  className="border-solid border-0 border-b-2 border-black bg-green-200 px-2 py-1 min-w-8 cursor-pointer"
->
-  {item.name}
-</th>
+                  <th
+                    onClick={() => handleSort(item.name)}
+                    className="border-solid border-0 border-b-2 border-black bg-green-200 px-2 py-1 min-w-8 cursor-pointer"
+                  >
+                    {item.name}
+                  </th>
 
                   {item.values.map((value, valueIndex) => (
                     <td
