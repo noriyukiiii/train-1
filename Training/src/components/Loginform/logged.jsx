@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
+//ต้องใช้ json-server data.json --port 3030
 function Logged() {
   const [name, setName] = useState("");
   const [weight, setWeight] = useState("");

@@ -44,10 +44,12 @@ function Inputadd({ onSubmittedData }) {
     }
 
     // สร้าง table แยกตามข้อมูลที่ถูกส่งเข้ามาในแต่ละครั้ง
-    const submittedData = inputGroups.map((group) => ({
-      name: group.inputs[0],
-      values: [group.inputs[1], group.inputs[2], group.inputs[3]],
-    }));
+    const submittedData = inputGroups.map((group) => [
+      group.inputs[0],
+      group.inputs[1],
+      group.inputs[2],
+      group.inputs[3]
+    ]);
 
     // เรียกใช้งาน function ที่รับมาจาก props เพื่อส่ง submitted data ไปยัง component อื่น ๆ
     onSubmittedData(submittedData);
