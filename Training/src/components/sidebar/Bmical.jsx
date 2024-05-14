@@ -1,9 +1,9 @@
 import Logged from '../Loginform/logged';
-import Bmitable from '../bmi';
+import Bmitable from './bmi';
 import Sidebarnav from './sidebar';
 
 
-const Loggedside = () => {
+const Bmical = () => {
   return (
     <div className='flex justify-between'> {/* เพิ่มคลาส flex เพื่อให้คอลัมน์ถูกจัดการโดย flexbox */}
         <div className="leftcol w-auto overflow-y-hidden overflow-x-hidden sticky top-0 h-screen"> {/* กำหนดความกว้างของ Sidebar เป็น 64px */}
@@ -17,5 +17,5 @@ const Loggedside = () => {
   )
 }
 
-export default Loggedside;
+export default Bmical;
 

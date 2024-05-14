@@ -14,7 +14,7 @@ import Homeside from "/src/components/sidebar/homeside";
 import Bmiside from "/src/components/sidebar/addtableside/bmiside";
 import Calside from "/src/components/sidebar/calside";
 import Home_main from "/src/components/Menu/Homepage/Home_main";
-import Loggedside from "/src/components/sidebar/loggedside";
+import Bmical from "../sidebar/Bmical";
 
 const AppRoutes = () => {
   return (
@@ -28,7 +28,7 @@ const AppRoutes = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/logged" element={<Homeside />} />
-        <Route path="/bmical" element={<Loggedside />} />
+        <Route path="/bmical" element={<Bmical />} />
         <Route path="/signup" element={<Signup/>}/>
         <Route path="navbar" element={<Nav/>}/>
         <Route path="/table" element={<Bmiside/>}/>
